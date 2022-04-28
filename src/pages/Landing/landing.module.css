@@ -1,0 +1,9 @@
+section {
+  width: 50%;
+}
+
+.title {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1em;
+}
