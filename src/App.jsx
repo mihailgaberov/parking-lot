@@ -14,9 +14,9 @@ const pages = [
       />
     </animated.div>
   ),
-  ({ style, slots }) => (
+  ({ style, slotsCount }) => (
     <animated.div style={{ ...style, background: "lightgray" }}>
-      <Main slots={slots} />
+      <Main slotsCount={slotsCount} />
     </animated.div>
   ),
 ];
@@ -47,7 +47,7 @@ export default function App() {
           <Page
             style={style}
             triggerTransition={onClick}
-            slots={parkingSlotsCount}
+            slotsCount={parkingSlotsCount}
             setParkingSlotsCount={setParkingSlotsCount}
           />
         );
