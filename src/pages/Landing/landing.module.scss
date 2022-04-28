@@ -1,15 +1,22 @@
 .landing {
   h1 {
-    font-size: 8em;
+    font-size: 5.9vw;
   }
 
   section {
-    width: 50%;
+    width: 100%;
+
+    @media only screen and (min-width: 1080px) {
+      width: 59%;
+    }
   }
 
   .title {
     text-align: center;
     margin: 1rem 0;
-    font-size: 7em;
+    font-size: 2.9vw;
+    font-weight: 300;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
   }
 }
