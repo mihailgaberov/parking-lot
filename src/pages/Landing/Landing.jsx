@@ -28,13 +28,13 @@ export const Landing = ({ triggerTransition, setParkingSlotsCount }) => {
         </header>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
-            placeholder="Enter your desired size here (1-20)"
+            placeholder="Enter your desired size here (1-25)"
             type="number"
             {...register("parkingSize", {
               required: true,
               maxLength: 2,
               min: 1,
-              max: 20,
+              max: 25,
             })}
           />
 

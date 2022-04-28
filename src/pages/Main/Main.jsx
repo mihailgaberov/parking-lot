@@ -5,6 +5,7 @@ import styles from "./main.module.scss";
 
 export const Main = ({ slotsCount }) => {
   const [slots, setSlots] = useState([]);
+  const [rows, setRows] = useState([]);
 
   useEffect(() => {
     function generateSlots() {
@@ -16,14 +17,26 @@ export const Main = ({ slotsCount }) => {
       setSlots(arrWithNumbers);
     }
 
+    setRows(new Array(Math.ceil(slotsCount / 5)).fill(null));
+
     generateSlots();
   }, [slotsCount]);
 
+  console.log("rows: ", rows);
+
   return (
-    <div className={styles.slotsRow}>
-      {slots.map((num) => {
-        return <ParkingSlot key={num} num={num} />;
+    <>
+      {rows.map((r, idx) => {
+        return (
+          <div className={styles.row}>
+            {slots.map((num) => {
+              if (num <= slots.length / rows.length) {
+                return <ParkingSlot key={num} num={num} />;
+              }
+            })}
+          </div>
+        );
       })}
-    </div>
+    </>
   );
 };
