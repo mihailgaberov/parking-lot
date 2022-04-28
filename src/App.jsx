@@ -1,19 +1,19 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useTransition, animated, useSpringRef } from "@react-spring/web";
 
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import { Landing } from "./pages/Landing";
 import { Main } from "./pages/Main/Main";
 
 const pages = [
   ({ style }) => (
-    <animated.div style={{ ...style, background: "lightgray" }}>
-      <Main />
+    <animated.div style={{ ...style, background: "lightgreen" }}>
+      <Landing />
     </animated.div>
   ),
   ({ style }) => (
-    <animated.div style={{ ...style, background: "lightgreen" }}>
-      <Landing />
+    <animated.div style={{ ...style, background: "lightgray" }}>
+      <Main />
     </animated.div>
   ),
 ];
@@ -35,7 +35,7 @@ export default function App() {
   }, [index]);
 
   return (
-    <div className={`flex fill ${styles.container}`} onClick={onClick}>
+    <div className={`flex fill ${styles.container}`}>
       {transitions((style, i) => {
         const Page = pages[i];
         return <Page style={style} />;

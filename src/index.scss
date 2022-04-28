@@ -25,10 +25,6 @@ body {
   height: 100%;
 }
 
-.flex.center {
-  justify-content: center;
-}
-
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -49,6 +45,7 @@ h1 {
 
 p {
   color: #bf1650;
+  font-size: unset;
 }
 
 p::before {
