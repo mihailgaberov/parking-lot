@@ -6,9 +6,9 @@ import { Landing } from "./pages/Landing";
 import { Main } from "./pages/Main/Main";
 
 const pages = [
-  ({ style }) => (
+  ({ style, triggerTransition }) => (
     <animated.div style={{ ...style, background: "lightgreen" }}>
-      <Landing />
+      <Landing triggerTransition={triggerTransition} />
     </animated.div>
   ),
   ({ style }) => (
@@ -38,7 +38,7 @@ export default function App() {
     <div className={`flex fill ${styles.container}`}>
       {transitions((style, i) => {
         const Page = pages[i];
-        return <Page style={style} />;
+        return <Page style={style} triggerTransition={onClick} />;
       })}
     </div>
   );
