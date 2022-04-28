@@ -6,19 +6,24 @@ import { Landing } from "./pages/Landing";
 import { Main } from "./pages/Main/Main";
 
 const pages = [
-  ({ style, triggerTransition }) => (
+  ({ style, triggerTransition, setParkingSlotsCount }) => (
     <animated.div style={{ ...style, background: "lightgreen" }}>
-      <Landing triggerTransition={triggerTransition} />
+      <Landing
+        triggerTransition={triggerTransition}
+        setParkingSlotsCount={setParkingSlotsCount}
+      />
     </animated.div>
   ),
-  ({ style }) => (
+  ({ style, slots }) => (
     <animated.div style={{ ...style, background: "lightgray" }}>
-      <Main />
+      <Main slots={slots} />
     </animated.div>
   ),
 ];
 
 export default function App() {
+  const [parkingSlotsCount, setParkingSlotsCount] = useState(1);
+
   const [index, set] = useState(0);
   const onClick = useCallback(() => set((state) => (state + 1) % 2), []);
   const transRef = useSpringRef();
@@ -38,7 +43,14 @@ export default function App() {
     <div className={`flex fill ${styles.container}`}>
       {transitions((style, i) => {
         const Page = pages[i];
-        return <Page style={style} triggerTransition={onClick} />;
+        return (
+          <Page
+            style={style}
+            triggerTransition={onClick}
+            slots={parkingSlotsCount}
+            setParkingSlotsCount={setParkingSlotsCount}
+          />
+        );
       })}
     </div>
   );

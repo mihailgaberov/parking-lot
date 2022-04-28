@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 import styles from "./landing.module.scss";
 
-export const Landing = ({ triggerTransition }) => {
+export const Landing = ({ triggerTransition, setParkingSlotsCount }) => {
   const {
     register,
     handleSubmit,
@@ -10,6 +10,10 @@ export const Landing = ({ triggerTransition }) => {
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
+    const parkingSize = Number(data.parkingSize);
+    if (parkingSize && typeof parkingSize === "number") {
+      setParkingSlotsCount(parkingSize);
+    }
     triggerTransition();
   };
 

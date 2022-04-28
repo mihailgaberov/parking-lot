@@ -1,3 +1,3 @@
-export const Main = () => {
-  return <h1>Main page</h1>;
+export const Main = ({ slots }) => {
+  return <h1>Available slots: {slots}</h1>;
 };
