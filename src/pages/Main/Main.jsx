@@ -3,40 +3,43 @@ import { useState, useEffect } from "react";
 import { ParkingSlot } from "../../components/ParkingSlot";
 import styles from "./main.module.scss";
 
+const ROW_LIMIT = 5;
+
 export const Main = ({ slotsCount }) => {
-  const [slots, setSlots] = useState([]);
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    function generateSlots() {
-      const arrWithNumbers = [];
-      for (let i = 1; i <= slotsCount; i++) {
-        arrWithNumbers.push(i);
-      }
+    function distributeSlotsToRows() {
+      let rowsCount = Math.ceil(slotsCount / 5);
+      const rows = [];
+      let row = [];
 
-      setSlots(arrWithNumbers);
+      while (slotsCount > 0 && rowsCount > 0) {
+        row.push(slotsCount);
+        slotsCount--;
+
+        if (slotsCount % ROW_LIMIT === 0) {
+          rowsCount--;
+          rows.push(row);
+          row = [];
+        }
+      }
+      console.log({ rows });
+      setRows(rows);
     }
 
-    setRows(new Array(Math.ceil(slotsCount / 5)).fill(null));
-
-    generateSlots();
+    distributeSlotsToRows();
   }, [slotsCount]);
-
-  console.log("rows: ", rows);
 
   return (
     <>
-      {rows.map((r, idx) => {
-        return (
-          <div className={styles.row}>
-            {slots.map((num) => {
-              if (num <= slots.length / rows.length) {
-                return <ParkingSlot key={num} num={num} />;
-              }
-            })}
-          </div>
-        );
-      })}
+      {rows.map((row, idx) => (
+        <div key={row + idx} className={styles.row}>
+          {row.map((slot) => (
+            <ParkingSlot key={slot + idx} num={slot} />
+          ))}
+        </div>
+      ))}
     </>
   );
 };
