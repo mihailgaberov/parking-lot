@@ -8,4 +8,4 @@
 [build]: https://github.com/mihailgaberov/parking-lot/deployments
 <!-- prettier-ignore-end -->
 
-The app used in my article -> https://mihailgaberov.com/solve-parking-lot-challenge
+The app used in my article -> https://mihailgaberov.com/solve-parking-lot-challenge (still not live - WIP)
