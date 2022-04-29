@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 
 import styles from "./landing.module.scss";
 
+const PARKING_SIZE = 25;
+
 export const Landing = ({ triggerTransition, setParkingSlotsCount }) => {
   const {
     register,
@@ -28,18 +30,21 @@ export const Landing = ({ triggerTransition, setParkingSlotsCount }) => {
         </header>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
-            placeholder="Enter your desired size here (1-25)"
+            placeholder={`Enter your desired size here (1-${PARKING_SIZE})`}
             type="number"
             {...register("parkingSize", {
               required: true,
               maxLength: 2,
               min: 1,
-              max: 25,
+              max: PARKING_SIZE,
             })}
           />
 
           {errors.parkingSize && (
-            <p>Parking slots count should be between 1 and 20 (including).</p>
+            <p>
+              Parking slots count should be between 1 and {PARKING_SIZE}{" "}
+              (including).
+            </p>
           )}
           <input type="submit" />
         </form>
