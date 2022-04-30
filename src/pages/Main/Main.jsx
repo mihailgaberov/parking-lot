@@ -24,7 +24,6 @@ export const Main = ({ slotsCount }) => {
           row = [];
         }
       }
-      console.log({ rows });
       setRows(rows);
     }
 
