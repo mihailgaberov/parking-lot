@@ -1,14 +1,16 @@
 .parkingSlot {
-  max-width: 270px;
-  width: 40vw;
+  max-width: 200px;
+  width: 30vw;
   height: 10vh;
   border-top: 6px solid white;
   border-left: 6px solid white;
+  border-bottom: 6px solid white;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: inset 10px 0 10px #000000;
+  margin: 1rem 0;
 
   &:first-child {
     border-top: 6px solid white;

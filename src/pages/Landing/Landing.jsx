@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 
 import styles from "./landing.module.scss";
 
-const PARKING_SIZE = 25;
+const PARKING_SIZE = 20;
 
 export const Landing = ({ triggerTransition, setParkingSlotsCount }) => {
   const {
