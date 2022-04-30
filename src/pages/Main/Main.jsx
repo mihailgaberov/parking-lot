@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Car } from "../../components/Car";
 
 import { ParkingSlot } from "../../components/ParkingSlot";
 import styles from "./main.module.scss";
@@ -39,6 +40,7 @@ export const Main = ({ slotsCount }) => {
           ))}
         </div>
       ))}
+      <Car />
     </>
   );
 };
