@@ -3,7 +3,7 @@ import { useTransition, animated, useSpringRef } from "@react-spring/web";
 
 import styles from "./styles.module.scss";
 import { Landing } from "./pages/Landing";
-import { Main } from "./pages/Main/Main";
+import { Main } from "./pages/Main";
 
 const pages = [
   ({ style, triggerTransition, setParkingSlotsCount }) => (
