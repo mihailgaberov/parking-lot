@@ -4,14 +4,12 @@ import { SwitchTransition, CSSTransition } from "react-transition-group";
 import carUrl from "../../../assets/car.png";
 import styles from "./car.module.scss";
 
-// const modes = ["out-in", "in-out"];
 
 export const Car = () => {
-  const [mode, setMode] = useState("out-in");
   const [state, setState] = useState(true);
   return (
     <>
-      <SwitchTransition mode={mode}>
+      <SwitchTransition mode={"out-in"}>
         <CSSTransition
           key={state}
           addEndListener={(node, done) => {
@@ -20,7 +18,7 @@ export const Car = () => {
           classNames={styles.fade}
         >
           <div className={styles.carContainer}>
-            <img src={carUrl} onClick={() => setState((state) => !state)} />
+            <img src={carUrl} alt='Car' onClick={() => setState((state) => !state)} />
           </div>
         </CSSTransition>
       </SwitchTransition>

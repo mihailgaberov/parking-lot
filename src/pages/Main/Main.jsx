@@ -40,7 +40,9 @@ export const Main = ({ slotsCount }) => {
           ))}
         </div>
       ))}
-      <Car />
+      <footer>
+        <Car />
+      </footer>
     </>
   );
 };
