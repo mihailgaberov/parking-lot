@@ -9,6 +9,7 @@ const ROW_LIMIT = 5;
 
 export const Main = ({ slotsCount }) => {
   const [rows, setRows] = useState([]);
+  const [showButtons, setShowButtons] = useState(false);
 
   useEffect(() => {
     function distributeSlotsToRows() {
@@ -42,8 +43,8 @@ export const Main = ({ slotsCount }) => {
         </div>
       ))}
       <footer>
-        <Car />
-        <Controls />
+        <Car setShowButtons={setShowButtons} />
+        <Controls showButtons={showButtons} />
       </footer>
     </>
   );

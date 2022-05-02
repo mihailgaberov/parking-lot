@@ -1,11 +1,15 @@
-import styles from './controls.module.scss'
+import styles from "./controls.module.scss";
 
-export const Controls = () => {
+export const Controls = ({ showButtons }) => {
   return (
-      <div className={styles.controls}>
-        <button>PARK!</button>
-        <button>REMOVE</button>
-        <button>FREE SLOTS</button>
-      </div>
+    <>
+      {showButtons && (
+        <div className={styles.controls}>
+          <button>PARK!</button>
+          <button>REMOVE</button>
+          <button>FREE SLOTS</button>
+        </div>
+      )}
+    </>
   );
 };
