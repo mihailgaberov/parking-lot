@@ -1,3 +1,11 @@
 .row {
   margin: 0 1rem;
 }
+
+footer {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}

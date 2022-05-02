@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Car } from "../../components/Car";
 
-import { ParkingSlot } from "../../components/ParkingSlot";
 import styles from "./main.module.scss";
+import { ParkingSlot } from "../../components/ParkingSlot";
+import { Controls } from "../../components/Controls";
 
 const ROW_LIMIT = 5;
 
@@ -42,6 +43,7 @@ export const Main = ({ slotsCount }) => {
       ))}
       <footer>
         <Car />
+        <Controls />
       </footer>
     </>
   );
