@@ -5,16 +5,16 @@ import carUrl from "../../../assets/car.png";
 import "./car.css";
 
 export const Car = ({ setShowButtons }) => {
-  const [state, setState] = useState(false);
+  const [showCar, setShowCar] = useState(false);
 
   useEffect(() => {
-    setInterval(() => setState((state) => !state), 5000);
+    setInterval(() => setShowCar((state) => true), 3000);
   }, []);
 
   return (
     <div className="car-container">
       <CSSTransition
-        in={state}
+        in={showCar}
         timeout={300}
         unmountOnExit
         onEnter={() => setShowButtons(true)}
@@ -26,7 +26,7 @@ export const Car = ({ setShowButtons }) => {
             className="car"
             src={carUrl}
             alt="Car"
-            onClick={() => setState((state) => !state)}
+            onClick={() => setShowCar((state) => !state)}
           />
         </div>
       </CSSTransition>
