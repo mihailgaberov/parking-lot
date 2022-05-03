@@ -4,10 +4,12 @@ import { Car } from "../../components/Car";
 import styles from "./main.module.scss";
 import { ParkingSlot } from "../../components/ParkingSlot";
 import { Controls } from "../../components/Controls";
+import ParkingLot from "../../lib/parking-lot";
 
 const ROW_LIMIT = 5;
 
 export const Main = ({ slotsCount }) => {
+  const parkingLot = new ParkingLot(slotsCount);
   const [rows, setRows] = useState([]);
   const [showButtons, setShowButtons] = useState(false);
 
@@ -44,7 +46,12 @@ export const Main = ({ slotsCount }) => {
       ))}
       <footer>
         <Car setShowButtons={setShowButtons} />
-        <Controls showButtons={showButtons} />
+        <Controls
+          showButtons={showButtons}
+          add={(carId) => parkingLot.park(carId)}
+          remove={(carId) => parkingLot.remove(carId)}
+          getSize={() => parkingLot.getSlots()}
+        />
       </footer>
     </>
   );

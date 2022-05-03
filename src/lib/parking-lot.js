@@ -6,6 +6,7 @@ class ParkingLot {
   }
 
   park(carId) {
+    console.log(`Parking car: ${carId}`);
     if (this.slots.every((slot) => slot !== null)) {
       return false;
     }
@@ -21,10 +22,12 @@ class ParkingLot {
   }
 
   getSlots() {
+    console.log(`Parking slots: ${this.slots}`);
     return this.slots;
   }
 
   remove(carId) {
+    console.log(`Leaving car: ${carId}`);
     if (this.slots.every((slot) => slot !== carId)) {
       return false;
     }
@@ -39,3 +42,5 @@ class ParkingLot {
     }
   }
 }
+
+export default ParkingLot;
