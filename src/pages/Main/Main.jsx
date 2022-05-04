@@ -15,7 +15,7 @@ export const Main = ({ slotsCount }) => {
 
   useEffect(() => {
     function distributeSlotsToRows() {
-      let rowsCount = Math.ceil(slotsCount / 5);
+      let rowsCount = Math.ceil(slotsCount / ROW_LIMIT);
       const rows = [];
       let row = [];
 
@@ -40,7 +40,7 @@ export const Main = ({ slotsCount }) => {
       {rows.map((row, idx) => (
         <div key={row + idx} className={styles.row}>
           {row.map((slot) => (
-            <ParkingSlot key={slot + idx} num={slot} />
+            <ParkingSlot key={slot + idx} num={slot} isBusy={false} />
           ))}
         </div>
       ))}
