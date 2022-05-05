@@ -9,9 +9,14 @@ import ParkingLot from "../../lib/parking-lot";
 const ROW_LIMIT = 5;
 
 export const Main = ({ slotsCount }) => {
-  const parkingLot = new ParkingLot(slotsCount);
+  const [parkingLot, setParkingLot] = useState(null);
+  const [availableSlots, setAvailableSlots] = useState(0);
   const [rows, setRows] = useState([]);
   const [showButtons, setShowButtons] = useState(false);
+
+  useEffect(() => {
+    setParkingLot(new ParkingLot(slotsCount));
+  }, [slotsCount]);
 
   useEffect(() => {
     function distributeSlotsToRows() {
@@ -30,15 +35,15 @@ export const Main = ({ slotsCount }) => {
         }
       }
 
-      console.log(`Setting rows: ${rows}`);
       setRows(rows);
     }
 
     distributeSlotsToRows();
-  }, [slotsCount, parkingLot.getSize()]);
+  }, [slotsCount, availableSlots]);
 
   const handleAddToParking = (carId) => {
     parkingLot.park(carId);
+    setAvailableSlots(parkingLot.getAvailable());
   };
 
   return (
