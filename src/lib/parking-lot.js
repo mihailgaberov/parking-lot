@@ -21,11 +21,6 @@ class ParkingLot {
     }
   }
 
-  getSlots() {
-    console.log(`Parking slots: ${this.slots}`);
-    return this.slots;
-  }
-
   remove(carId) {
     console.log(`Leaving car: ${carId}`);
     if (this.slots.every((slot) => slot !== carId)) {
@@ -40,6 +35,22 @@ class ParkingLot {
         return true;
       }
     }
+  }
+
+  getSlots() {
+    console.log(`Parking slots: ${this.slots}`);
+    return this.slots;
+  }
+
+  getSize() {
+    console.log(`Parking size is: ${this.slots.length}`);
+    return this.slots.length;
+  }
+
+  getAvailable() {
+    const availableSlots = this.slots.filter((s) => s === null).length;
+    console.log(`Available parking slots: ${availableSlots}`);
+    return availableSlots;
   }
 }
 

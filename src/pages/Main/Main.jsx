@@ -29,11 +29,17 @@ export const Main = ({ slotsCount }) => {
           row = [];
         }
       }
+
+      console.log(`Setting rows: ${rows}`);
       setRows(rows);
     }
 
     distributeSlotsToRows();
-  }, [slotsCount]);
+  }, [slotsCount, parkingLot.getSize()]);
+
+  const handleAddToParking = (carId) => {
+    parkingLot.park(carId);
+  };
 
   return (
     <>
@@ -48,9 +54,10 @@ export const Main = ({ slotsCount }) => {
         <Car setShowButtons={setShowButtons} />
         <Controls
           showButtons={showButtons}
-          add={(carId) => parkingLot.park(carId)}
+          add={handleAddToParking}
           remove={(carId) => parkingLot.remove(carId)}
-          getSize={() => parkingLot.getSlots()}
+          getSlots={() => parkingLot.getSlots()}
+          getAvailable={() => parkingLot.getAvailable()}
         />
       </footer>
     </>
