@@ -25,8 +25,12 @@ export const Main = ({ slotsCount }) => {
       let row = [];
 
       while (slotsCount > 0 && rowsCount > 0) {
-        row.push(slotsCount);
+        // It's important first to decrement the count of the slots otherwise we will miss one
         slotsCount--;
+
+        const slot = parkingLot?.slots[slotsCount];
+        const isSlotTaken = slot !== null && slot !== undefined;
+        row.push({ slotNum: slotsCount, isBusy: isSlotTaken });
 
         if (slotsCount % ROW_LIMIT === 0) {
           rowsCount--;
@@ -50,8 +54,8 @@ export const Main = ({ slotsCount }) => {
     <>
       {rows.map((row, idx) => (
         <div key={row + idx} className={styles.row}>
-          {row.map((slot) => (
-            <ParkingSlot key={slot + idx} num={slot} isBusy={false} />
+          {row.map(({ slotNum, isBusy }) => (
+            <ParkingSlot key={slotNum + idx} num={slotNum} isBusy={isBusy} />
           ))}
         </div>
       ))}
