@@ -14,6 +14,10 @@
   box-shadow: inset 5px 0 10px #000000;
   margin: 1rem 0;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &:first-child {
     border-top: 6px solid white;
   }
