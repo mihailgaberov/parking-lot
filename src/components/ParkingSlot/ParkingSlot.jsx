@@ -1,9 +1,9 @@
 import styles from "./parking-slot.module.scss";
 
-export const ParkingSlot = ({ num, isBusy }) => {
+export const ParkingSlot = ({ num, isBusy, numberPlate }) => {
   return (
     <div className={`${styles.parkingSlot} ${isBusy ? styles.busy : ""}`}>
-      {num}
+      {isBusy ? numberPlate : num}
     </div>
   );
 };

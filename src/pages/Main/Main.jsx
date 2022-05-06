@@ -30,7 +30,11 @@ export const Main = ({ slotsCount }) => {
 
         const slot = parkingLot?.slots[slotsCount];
         const isSlotTaken = slot !== null && slot !== undefined;
-        row.push({ slotNum: slotsCount, isBusy: isSlotTaken });
+        row.push({
+          slotNum: slotsCount,
+          isBusy: isSlotTaken,
+          numberPlate: slot,
+        });
 
         if (slotsCount % ROW_LIMIT === 0) {
           rowsCount--;
@@ -54,8 +58,13 @@ export const Main = ({ slotsCount }) => {
     <>
       {rows.map((row, idx) => (
         <div key={row + idx} className={styles.row}>
-          {row.map(({ slotNum, isBusy }) => (
-            <ParkingSlot key={slotNum + idx} num={slotNum} isBusy={isBusy} />
+          {row.map(({ slotNum, isBusy, numberPlate }) => (
+            <ParkingSlot
+              key={slotNum + idx}
+              num={slotNum}
+              isBusy={isBusy}
+              numberPlate={numberPlate}
+            />
           ))}
         </div>
       ))}
