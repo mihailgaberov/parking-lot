@@ -13,6 +13,7 @@ export const Main = ({ slotsCount }) => {
   const [availableSlots, setAvailableSlots] = useState(0);
   const [rows, setRows] = useState([]);
   const [showButtons, setShowButtons] = useState(false);
+  const [carAnimation, setCarAnimation] = useState(true);
 
   useEffect(() => {
     setParkingLot(new ParkingLot(slotsCount));
@@ -52,11 +53,13 @@ export const Main = ({ slotsCount }) => {
   const handleAddToParking = (carId) => {
     parkingLot.park(carId);
     setAvailableSlots(parkingLot.getAvailable());
+    setCarAnimation((state) => !state);
   };
 
   const handleRemoveFromParking = (carId) => {
     parkingLot.remove(carId);
     setAvailableSlots(parkingLot.getAvailable());
+    setCarAnimation((state) => !state);
   };
 
   return (
@@ -76,12 +79,11 @@ export const Main = ({ slotsCount }) => {
       ))}
       <footer>
         <Controls
-          showButtons={showButtons}
           add={handleAddToParking}
           getSlots={() => parkingLot.getSlots()}
           getAvailable={() => parkingLot.getAvailable()}
         />
-        <Car setShowButtons={setShowButtons} />
+        <Car setShowButtons={setShowButtons} animationState={carAnimation} />
         <div className={styles.footerNote}>
           Click on a busy parking slot to remove the car.
         </div>
