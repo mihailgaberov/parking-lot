@@ -1,3 +1,16 @@
-.info-board {
-  border: 1px solid red;
+.infoBoard {
+  border: 1px solid white;
+  border-radius: 5px;
+
+  h3 {
+    text-align: center;
+  }
+
+  div {
+    padding: 1rem;
+
+    span {
+      color: green;
+    }
+  }
 }

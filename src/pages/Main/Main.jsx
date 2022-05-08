@@ -14,6 +14,7 @@ export const Main = ({ slotsCount }) => {
   const [availableSlots, setAvailableSlots] = useState(0);
   const [rows, setRows] = useState([]);
   const [carAnimation, setCarAnimation] = useState(true);
+  const [infoBoardVisible, setInfoBoardVisible] = useState(false);
 
   useEffect(() => {
     setParkingLot(new ParkingLot(slotsCount));
@@ -64,6 +65,10 @@ export const Main = ({ slotsCount }) => {
     }
   };
 
+  const handleGetInfo = () => {
+    setInfoBoardVisible((state) => !state);
+  };
+
   return (
     <>
       <div className={styles.main}>
@@ -82,12 +87,13 @@ export const Main = ({ slotsCount }) => {
         ))}
       </div>
       <footer>
-        <InfoBoard />
-        <Controls
-          add={handleAddToParking}
-          getSlots={() => parkingLot.getSlots()}
-          getAvailable={() => parkingLot.getAvailable()}
-        />
+        {infoBoardVisible && (
+          <InfoBoard
+            availableSlotsCount={availableSlots}
+            parkedCars={parkingLot.getSlots()}
+          />
+        )}
+        <Controls add={handleAddToParking} getInfo={handleGetInfo} />
         <div className={styles.footerNote}>
           Click on a busy parking slot to unpark the car.
         </div>
