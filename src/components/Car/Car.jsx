@@ -2,7 +2,7 @@ import { CSSTransition } from "react-transition-group";
 import carUrl from "../../../assets/car.png";
 import "./car.css";
 
-export const Car = ({ setShowButtons, animationState }) => {
+export const Car = ({ animationState }) => {
   return (
     <div className="car-container">
       <CSSTransition

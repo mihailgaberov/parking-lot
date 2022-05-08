@@ -5,6 +5,7 @@ import styles from "./main.module.scss";
 import { ParkingSlot } from "../../components/ParkingSlot";
 import { Controls } from "../../components/Controls";
 import ParkingLot from "../../lib/parking-lot";
+import { InfoBoard } from "../../components/InfoBoard/InfoBoard";
 
 const ROW_LIMIT = 5;
 
@@ -12,7 +13,6 @@ export const Main = ({ slotsCount }) => {
   const [parkingLot, setParkingLot] = useState(null);
   const [availableSlots, setAvailableSlots] = useState(0);
   const [rows, setRows] = useState([]);
-  const [showButtons, setShowButtons] = useState(false);
   const [carAnimation, setCarAnimation] = useState(true);
 
   useEffect(() => {
@@ -82,6 +82,7 @@ export const Main = ({ slotsCount }) => {
         ))}
       </div>
       <footer>
+        <InfoBoard />
         <Controls
           add={handleAddToParking}
           getSlots={() => parkingLot.getSlots()}
@@ -90,7 +91,7 @@ export const Main = ({ slotsCount }) => {
         <div className={styles.footerNote}>
           Click on a busy parking slot to unpark the car.
         </div>
-        <Car setShowButtons={setShowButtons} animationState={carAnimation} />
+        <Car animationState={carAnimation} />
       </footer>
     </>
   );
