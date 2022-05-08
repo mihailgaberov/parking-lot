@@ -1,0 +1,1 @@
+export { InfoBoard } from "./InfoBoard";
