@@ -57,9 +57,11 @@ export const Main = ({ slotsCount }) => {
   };
 
   const handleRemoveFromParking = (carId) => {
-    parkingLot.remove(carId);
-    setAvailableSlots(parkingLot.getAvailable());
-    setCarAnimation((state) => !state);
+    if (carId) {
+      parkingLot.remove(carId);
+      setAvailableSlots(parkingLot.getAvailable());
+      setCarAnimation((state) => !state);
+    }
   };
 
   return (
