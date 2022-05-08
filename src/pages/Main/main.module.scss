@@ -1,12 +1,15 @@
-.row {
-  margin: 0 1rem;
+.main {
+  display: flex;
+  .row {
+    margin: 0 1rem;
+  }
 }
 
 footer {
   position: sticky;
   bottom: 0;
   display: flex;
-  justify-content: space-around;
+  min-height: 212px;
   flex-direction: column;
   align-items: center;
 

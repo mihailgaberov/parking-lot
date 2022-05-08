@@ -66,29 +66,31 @@ export const Main = ({ slotsCount }) => {
 
   return (
     <>
-      {rows.map((row, idx) => (
-        <div key={row + idx} className={styles.row}>
-          {row.map(({ slotNum, isBusy, numberPlate }) => (
-            <ParkingSlot
-              remove={handleRemoveFromParking}
-              key={slotNum + idx}
-              num={slotNum}
-              isBusy={isBusy}
-              numberPlate={numberPlate}
-            />
-          ))}
-        </div>
-      ))}
+      <div className={styles.main}>
+        {rows.map((row, idx) => (
+          <div key={row + idx} className={styles.row}>
+            {row.map(({ slotNum, isBusy, numberPlate }) => (
+              <ParkingSlot
+                remove={handleRemoveFromParking}
+                key={slotNum + idx}
+                num={slotNum}
+                isBusy={isBusy}
+                numberPlate={numberPlate}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
       <footer>
         <Controls
           add={handleAddToParking}
           getSlots={() => parkingLot.getSlots()}
           getAvailable={() => parkingLot.getAvailable()}
         />
-        <Car setShowButtons={setShowButtons} animationState={carAnimation} />
         <div className={styles.footerNote}>
-          Click on a busy parking slot to remove the car.
+          Click on a busy parking slot to unpark the car.
         </div>
+        <Car setShowButtons={setShowButtons} animationState={carAnimation} />
       </footer>
     </>
   );
