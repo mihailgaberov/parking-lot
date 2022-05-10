@@ -52,6 +52,10 @@ class ParkingLot {
     console.log(`Available parking slots: ${availableSlots}`);
     return availableSlots;
   }
+
+  isFull() {
+    return this.getAvailable() === 0;
+  }
 }
 
 export default ParkingLot;

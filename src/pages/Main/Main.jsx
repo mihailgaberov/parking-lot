@@ -52,6 +52,11 @@ export const Main = ({ slotsCount }) => {
   }, [slotsCount, availableSlots]);
 
   const handleAddToParking = (carId) => {
+    if (parkingLot.isFull()) {
+      setInfoBoardVisible(true);
+      return;
+    }
+
     parkingLot.park(carId);
     setAvailableSlots(parkingLot.getAvailable());
     setCarAnimation((state) => !state);
