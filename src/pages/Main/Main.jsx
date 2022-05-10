@@ -76,6 +76,12 @@ export const Main = ({ slotsCount }) => {
 
   return (
     <>
+      {infoBoardVisible && (
+        <InfoBoard
+          availableSlotsCount={availableSlots}
+          parkedCars={parkingLot.getSlots()}
+        />
+      )}
       <div className={styles.main}>
         {rows.map((row, idx) => (
           <div key={row + idx} className={styles.row}>
@@ -92,12 +98,6 @@ export const Main = ({ slotsCount }) => {
         ))}
       </div>
       <footer>
-        {infoBoardVisible && (
-          <InfoBoard
-            availableSlotsCount={availableSlots}
-            parkedCars={parkingLot.getSlots()}
-          />
-        )}
         <Controls add={handleAddToParking} getInfo={handleGetInfo} />
         <div className={styles.footerNote}>
           Click on a busy parking slot to unpark the car.
