@@ -91,13 +91,11 @@ export const Main = ({ slotsCount }) => {
           </div>
         ))}
       </section>
-      <section>
-        {infoBoardVisible && (
-          <InfoBoard
-            availableSlotsCount={availableSlots}
-            parkedCars={parkingLot.getSlots()}
-          />
-        )}
+      <section className={styles.dashboard}>
+        <InfoBoard
+          availableSlotsCount={availableSlots}
+          parkedCars={parkingLot.getSlots()}
+        />
         <Controls add={handleAddToParking} getInfo={handleGetInfo} />
         <div className={styles.footerNote}>
           Click on a busy parking slot to unpark the car.
