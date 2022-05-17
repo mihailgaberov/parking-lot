@@ -11,7 +11,7 @@ const ROW_LIMIT = 5;
 
 export const Main = ({ slotsCount }) => {
   const [parkingLot, setParkingLot] = useState(null);
-  const [availableSlots, setAvailableSlots] = useState(0);
+  const [availableSlots, setAvailableSlots] = useState(slotsCount);
   const [rows, setRows] = useState([]);
   const [carAnimation, setCarAnimation] = useState(true);
   const [infoBoardVisible, setInfoBoardVisible] = useState(false);
@@ -92,10 +92,7 @@ export const Main = ({ slotsCount }) => {
         ))}
       </section>
       <section className={styles.dashboard}>
-        <InfoBoard
-          availableSlotsCount={availableSlots}
-          parkedCars={parkingLot.getSlots()}
-        />
+        <InfoBoard availableSlotsCount={availableSlots} />
         <Controls add={handleAddToParking} getInfo={handleGetInfo} />
         <div className={styles.footerNote}>
           Click on a busy parking slot to unpark the car.
