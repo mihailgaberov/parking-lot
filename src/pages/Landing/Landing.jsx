@@ -41,7 +41,7 @@ export const Landing = ({ triggerTransition, setParkingSlotsCount }) => {
           />
 
           {errors.parkingSize && (
-            <p>
+            <p className={styles.errorMessage}>
               Parking slots count should be between 1 and {PARKING_SIZE}{" "}
               (including).
             </p>
