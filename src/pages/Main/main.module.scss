@@ -7,18 +7,10 @@
 
 .dashboard {
   min-height: 323px;
+  margin: 0 0.5rem;
 }
 
-footer {
-  position: sticky;
-  bottom: 0;
-  display: flex;
-  min-height: 212px;
-  flex-direction: column;
-  align-items: center;
-
-  .footerNote {
-    font-weight: 100;
-    padding: 0 5rem;
-  }
+.footerNote {
+  font-weight: 100;
+  color: green;
 }
