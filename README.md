@@ -8,4 +8,6 @@
 [build]: https://github.com/mihailgaberov/parking-lot/deployments
 <!-- prettier-ignore-end -->
 
-The app used in my article -> https://mihailgaberov.com/solve-parking-lot-challenge (still not live - WIP)
+The app used in my article -> https://mihailgaberov.com/how-to-solve-the-parking-lot-in-javascript/
+
+Read in freeCodeCamp too -> https://www.freecodecamp.org/news/parking-lot-challenge-solved-in-javascript/
