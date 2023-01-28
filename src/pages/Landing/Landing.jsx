@@ -46,7 +46,7 @@ export const Landing = ({ triggerTransition, setParkingSlotsCount }) => {
               (including).
             </p>
           )}
-          <input type="submit" />
+          <input type="submit" className={styles.submitBtn} />
         </form>
       </section>
     </div>

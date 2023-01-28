@@ -28,4 +28,13 @@
     margin: 0;
     padding: 0;
   }
+
+  .submitBtn {
+    transition: border-radius 0.15s;
+
+    &:hover {
+      border-radius: 40px;
+      cursor: pointer;
+    }
+  }
 }
